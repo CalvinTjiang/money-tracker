@@ -1,0 +1,9 @@
+.section{
+    justify-content: center;
+    width: 40%;
+    float: left;
+    padding: 20px;
+}
+.item-row:hover{
+    background-color: rgb(230,230,230);
+}

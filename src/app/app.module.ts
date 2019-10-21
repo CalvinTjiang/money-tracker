@@ -1,16 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
+import { RouterModule, Routes } from "@angular/router";
+// Service
+import { DatabaseService } from './database.service'
 
+// Component
 import { AppComponent } from './app.component';
+import { ListpurchasesComponent } from './listpurchases/listpurchases.component';
+import { ListusersComponent } from './listusers/listusers.component';
+import { ListstoresComponent } from './liststores/liststores.component';
+
+const appRoutes: Routes = [
+  { path: "purchases", component: ListpurchasesComponent },
+  { path: "users", component: ListusersComponent },
+  { path: "stores", component: ListstoresComponent },
+  { path: "", redirectTo: "/purchases", pathMatch: "full" },
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListpurchasesComponent,
+    ListusersComponent,
+    ListstoresComponent
   ],
   imports: [
-    BrowserModule
+    RouterModule.forRoot(appRoutes, {useHash: true}),
+    BrowserModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

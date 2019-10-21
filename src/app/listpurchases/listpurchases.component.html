@@ -1,0 +1,24 @@
+<div class="section">
+    <table class="table table-striped">
+    <tr>
+        <th>Date</th>
+        <th>User</th>
+        <th>Store</th>
+        <th>Category</th>
+        <th>Payment Type</th>
+        <th>Outcome</th>
+        <th>Income</th>
+        <th>Memo</th>
+    </tr>
+    <tr *ngFor="let item of purchasesDB">
+        <td>{{item.date}}</td>
+        <td>{{item.user.name}}</td>
+        <td>{{item.store.name}}</td>
+        <td>{{item.category.name}}</td>
+        <td>{{item.PaymentType}}</td>
+        <td>{{item.outcome}}</td>
+        <td>{{item.income}}</td>
+        <td>{{item.memo}}</td>
+    </tr>
+    </table>
+</div>

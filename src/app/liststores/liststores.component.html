@@ -1,0 +1,27 @@
+<div class="section" *ngIf="section==0">
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+
+        </tr>
+        <ng-container *ngFor="let item of storesDB">
+            <tr class="item-row" (click)="editStore(item)">
+                <td>{{item.name}}</td>
+                <td>{{item.type}}</td>
+            </tr>
+        </ng-container>
+    </table>
+</div>
+<div class="section" *ngIf="section==1">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="store.name">
+    </div>
+    <div class="form-group">
+        <label for="type">Type</label>
+        <input type="text" class="form-control" id="type" [(ngModel)]="store.type">
+    </div>
+    <button type="submit" class="btn btn-success" (click)="updateStore()">Update</button>
+    <button type="submit" class="btn btn-danger" (click)="deleteStore()">Delete</button>
+</div>

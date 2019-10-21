@@ -1,0 +1,72 @@
+.navbar-dark{
+    background-color: #343a40;
+}
+#navigator{
+    float: left;
+    /*height: 100vh;*/
+    padding: 0px 5px;
+    height:100%;
+    width: 150px;
+    position:fixed!important;
+    z-index:1;
+    overflow:auto;
+    align-items: flex-start;
+}
+#main{
+    margin-left: 150px;
+    overflow-y: auto;
+}
+.disabled{
+    background-color: #ffad46;
+    pointer-events: none;
+}
+
+
+.nav-item{
+    width: 135px;
+    margin: 2px;
+    padding:5px;
+    border-radius: 5px;
+}
+.nav-item.active.disabled .nav-link{
+    color: #343a40;
+}
+/* nav-link*/
+.nav-link{
+    padding: 8px 5px;
+    float: left;
+}
+.nav-link.nav-link-orange{
+    color:#ffad46;
+}
+
+/* Icon Area */
+i{
+    padding: 8px 5px;
+    float: left;
+}
+
+.material-icons.md-24 { 
+    font-size: 24px; 
+}
+.material-icons.md-light.md-active { 
+    color: rgba(255, 255, 255, 1); 
+}
+.material-icons.md-light{ 
+    color: rgba(255, 255, 255, 0.3); 
+}
+.md-orange{
+    color: #ffad46;
+}
+.md-active{
+    color: #343a40;
+}
+
+/* Hover area*/
+
+.nav-item:hover{
+    background-color: #ffad46 ;
+}
+.nav-item:hover .nav-link, .nav-item:hover .md-orange{ 
+    color: #343a40;
+}
