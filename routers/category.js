@@ -57,11 +57,10 @@ module.exports = {
             res.json();
         });
     },
-    
+/*
     addSuper: function(req, res){
-        /* 
-        req.body = { values : [ value1, value2, ..., valuen] }
-        */
+        //req.body = { values : [ value1, value2, ..., valuen] }
+        
         Category.findOneAndUpdate({ _id: req.params.id }, 
             { $push: { supercategories: { $each: req.body.values} } }, function (err, category) {
             if (err) return res.status(400).json(err);
@@ -72,9 +71,8 @@ module.exports = {
     },
 
     addSub: function(req, res){
-        /*
-        req.body = { values : [ value1, value2, ..., valuen] }
-        */
+        // req.body = { values : [ value1, value2, ..., valuen] }
+        
         Category.findOne({ _id: req.params.id })
             .exec(function (err, category) {
                 if (err) return res.status(400).json(err);
@@ -91,9 +89,8 @@ module.exports = {
     },
 
     deleteSuper: function(req, res){
-        /* 
-         req.body = { values : [ value1, value2, ..., valuen] }
-        */
+        //req.body = { values : [ value1, value2, ..., valuen] }
+
         Category.findOneAndUpdate({ _id: req.params.id }, 
             { $pull: { supercategories: { $in: req.body.values}  } }, function (err, category) {
             if (err) return res.status(400).json(err);
@@ -104,9 +101,8 @@ module.exports = {
     },
 
     deleteSub: function(req, res){
-        /* 
-         req.body = { values : [ value1, value2, ..., valuen] }
-        */
+        // req.body = { values : [ value1, value2, ..., valuen] }
+
         Category.updateMany({ _id: { $in: req.body.values }}, 
             { $pull: { supercategories: req.params.id } }, function (err, category) {
             if (err) return res.status(400).json(err);
@@ -115,7 +111,7 @@ module.exports = {
             res.json(category);
         });
     }
-
+*/
 /*  With checking!
     addSupercategories: function (req, res) {
         Category.findOne({ _id: req.params.id }, function (err, category) {

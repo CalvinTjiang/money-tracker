@@ -50,12 +50,12 @@ app.get('/db/categories/:id', categories.getOne);              // Get a specific
 app.put('/db/categories/:id', categories.updateOne);           // Update a category
 
 app.post('/db/categories', categories.createOne);              // Create a new category
-app.post('/db/categories/super/:id', categories.addSuper);     // Add 1 or more supercategories to a category
-app.post('/db/categories/sub/:id', categories.addSub);         // Add 1 or more subcategories to a category
+// app.post('/db/categories/super/:id', categories.addSuper);     // Add 1 or more supercategories to a category
+// app.post('/db/categories/sub/:id', categories.addSub);         // Add 1 or more subcategories to a category
 
 app.delete('/db/categories/:id', categories.deleteOne);        // Delete a category
-app.delete('/db/categories/super/:id', categories.deleteSuper);// Delete 1 or more supercategories from a category
-app.delete('/db/categories/sub/:id', categories.deleteSub);    // Delete 1 or more subcategories from a category
+// app.delete('/db/categories/super/:id', categories.deleteSuper);// Delete 1 or more supercategories from a category
+// app.delete('/db/categories/sub/:id', categories.deleteSub);    // Delete 1 or more subcategories from a category
 
 /*
 app.post('/categories/addSupers/:id', categories.addSupercategories);
