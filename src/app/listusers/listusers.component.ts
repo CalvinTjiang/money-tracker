@@ -8,11 +8,11 @@ import { DatabaseService } from '../database.service';
 })
 export class ListusersComponent implements OnInit {
 
-  private usersDB:any[] = [];
+  usersDB:any[] = [];
   // Section = 0, list all
   // Section = 1, edit one
-  private section:number = 0;
-  private user:any = {
+  section:number = 0;
+  user:any = {
     _id: "",
     name: "",
     balance: 0

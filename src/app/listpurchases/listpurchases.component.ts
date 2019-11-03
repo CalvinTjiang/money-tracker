@@ -8,7 +8,7 @@ import { DatabaseService } from '../database.service';
 })
 export class ListpurchasesComponent implements OnInit {
 
-  private purchasesDB:any[] = [];
+  purchasesDB:any[] = [];
 
   constructor(private dbService: DatabaseService) { }
 

@@ -8,11 +8,11 @@ import { DatabaseService } from '../database.service';
 })
 export class ListstoresComponent implements OnInit {
 
-  private storesDB:any[] = [];
+  storesDB:any[] = [];
   // Section = 0, list all
   // Section = 1, edit one
-  private section:number = 0;
-  private store:any = {
+  section:number = 0;
+  store:any = {
     _id: "",
     name: "",
     type: ""
