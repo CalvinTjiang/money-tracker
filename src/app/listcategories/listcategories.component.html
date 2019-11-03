@@ -1,0 +1,27 @@
+<div class="section" *ngIf="section==0">
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Super Category</th>
+
+        </tr>
+        <ng-container *ngFor="let item of categoriesDB">
+            <tr class="item-row" (click)="editCategory(item)">
+                <td>{{item.name}}</td>
+                <td>{{item.supercategory}}</td>
+            </tr>
+        </ng-container>
+    </table>
+</div>
+<div class="section" *ngIf="section==1">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="category.name">
+    </div>
+    <div class="form-group">
+        <label for="supercategory">Super Category</label>
+        <input type="text" class="form-control" id="supercategory" [(ngModel)]="category.supercategory">
+    </div>
+    <button type="submit" class="btn btn-success" (click)="updateCategory()">Update</button>
+    <button type="submit" class="btn btn-danger" (click)="deleteCategory()">Delete</button>
+</div>

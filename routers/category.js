@@ -13,7 +13,7 @@ module.exports = {
 
     getWithSuper: function (req, res) {
         Category.find({})
-            .populate('supercategories')
+            .populate('supercategory')
             .exec(function (err, categories) {
                 if (err) return res.status(400).json(err);
                 if (!categories) return res.status(404).json();

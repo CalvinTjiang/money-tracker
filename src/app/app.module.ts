@@ -11,11 +11,13 @@ import { AppComponent } from './app.component';
 import { ListpurchasesComponent } from './listpurchases/listpurchases.component';
 import { ListusersComponent } from './listusers/listusers.component';
 import { ListstoresComponent } from './liststores/liststores.component';
+import { ListcategoriesComponent } from './listcategories/listcategories.component';
 
 const appRoutes: Routes = [
   { path: "purchases", component: ListpurchasesComponent },
   { path: "users", component: ListusersComponent },
   { path: "stores", component: ListstoresComponent },
+  { path: "categories", component: ListcategoriesComponent },
   { path: "", redirectTo: "/purchases", pathMatch: "full" },
 ];
 
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
     AppComponent,
     ListpurchasesComponent,
     ListusersComponent,
-    ListstoresComponent
+    ListstoresComponent,
+    ListcategoriesComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {useHash: true}),
