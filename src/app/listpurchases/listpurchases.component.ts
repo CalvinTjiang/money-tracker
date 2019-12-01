@@ -9,12 +9,83 @@ import { DatabaseService } from '../database.service';
 export class ListpurchasesComponent implements OnInit {
 
   purchasesDB:any[] = [];
+  usersDB:any[] = [];
+  storesDB:any[] = [];
+  categoriesDB:any[] = [];
 
+  purchase:any = {
+    _id: "",
+    date: new Date(),
+    user: {
+      _id: "",
+      name: "",
+    },
+    store: {
+      _id: "",
+      name: "",
+    },
+    paymentType: "",
+    outcome: 0,
+    income: 0,
+    category: {
+      _id: "",
+      name: "",
+    },
+    memo: ""
+  };
+
+  section = 0;
+  
   constructor(private dbService: DatabaseService) { }
 
   ngOnInit() {
+    this.getPurchases();
+  }
+
+  getPurchases(){
     this.dbService.getPurchases().subscribe((data:any[])=>{
       this.purchasesDB = data;
     });
   }
+
+  getUsers() {
+    this.dbService.getUsers().subscribe((data:any[])=>{
+      this.usersDB = data;
+    });
+  }
+
+  getCategories(){
+    this.dbService.getCategories(true).subscribe((data:any[])=>{
+      this.categoriesDB = data;
+    });
+  }
+  
+  getStores(){
+    this.dbService.getStores().subscribe((data:any[])=>{
+      this.storesDB = data;
+    });
+  }
+
+  editPurchase(purchase){
+    this.getUsers();
+    this.getCategories();
+    this.getStores();
+    this.purchase = purchase;
+    this.section = 1;
+  }
+
+  updatePurchase(){
+    this.dbService.updatePurchase(this.purchase._id, this.purchase).subscribe((result)=>{
+      this.getPurchases();
+      this.section = 0;
+    })
+  }
+
+  deletePurchase(){
+    this.dbService.deletePurchase(this.purchase._id).subscribe((result)=>{
+      this.getPurchases();
+      this.section = 0;
+    })
+  }
+
 }

@@ -1,4 +1,4 @@
-<div class="section">
+<div class="section" *ngIf="section==0">
     <table class="table table-striped">
     <tr>
         <th>Date</th>
@@ -10,15 +10,68 @@
         <th>Income</th>
         <th>Memo</th>
     </tr>
-    <tr *ngFor="let item of purchasesDB">
-        <td>{{item.date}}</td>
-        <td>{{item.user.name}}</td>
-        <td>{{item.store.name}}</td>
-        <td>{{item.category.name}}</td>
-        <td>{{item.PaymentType}}</td>
-        <td>{{item.outcome}}</td>
-        <td>{{item.income}}</td>
-        <td>{{item.memo}}</td>
-    </tr>
+    <ng-container *ngFor="let item of purchasesDB">
+        <tr class="item-row" (click)="editPurchase(item)">
+            <td>{{item.date}}</td>
+            <td>{{item.user.name}}</td>
+            <td>{{item.store.name}}</td>
+            <td>{{item.category.name}}</td>
+            <td>{{item.PaymentType}}</td>
+            <td>{{item.outcome}}</td>
+            <td>{{item.income}}</td>
+            <td>{{item.memo}}</td>
+        </tr>
+    </ng-container> 
     </table>
+</div>
+<div class="section" *ngIf="section==1">
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" id="date" [(ngModel)]="purchase.date">
+    </div>
+    <div class="form-group">
+        <label >User</label>
+        <select class="custom-select" [(ngModel)]="purchase.user._id">
+            <ng-container *ngFor="let user of usersDB">  
+                <option *ngIf="user._id != purchase.user._id" [ngValue]=user._id>{{user.name}}</option>
+                <option *ngIf="user._id == purchase.user._id" [ngValue]=user._id selected>{{user.name}}</option>
+            </ng-container>
+        </select>
+    </div>
+    <div class="form-group">
+        <label >Store</label>
+        <select class="custom-select" [(ngModel)]="purchase.store._id">
+            <ng-container *ngFor="let store of storesDB">  
+                <option *ngIf="store._id != purchase.store._id" [ngValue]=store._id>{{store.name}}</option>
+                <option *ngIf="store._id == purchase.store._id" [ngValue]=store._id selected>{{store.name}}</option>
+            </ng-container>
+        </select>
+    </div>
+    <div class="form-group">
+        <label >Category</label>
+        <select class="custom-select" [(ngModel)]="purchase.category._id">
+            <ng-container *ngFor="let category of categoriesDB">  
+                <option *ngIf="category._id != purchase.category._id" [ngValue]=category._id>{{category.name}}</option>
+                <option *ngIf="category._id == purchase.category._id" [ngValue]=category._id selected>{{category.name}}</option>
+            </ng-container>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="paymentType">PaymentType</label>
+        <input type="text" class="form-control" id="paymentType" [(ngModel)]="purchase.PaymentType">
+    </div>
+    <div class="form-group">
+        <label for="outcome">Outcome</label>
+        <input type="number" class="form-control" id="outcome" [(ngModel)]="purchase.outcome">
+    </div>
+    <div class="form-group">
+        <label for="income">Income</label>
+        <input type="number" class="form-control" id="income" [(ngModel)]="purchase.income">
+    </div>
+    <div class="form-group">
+        <label for="memo">Memo</label>
+        <textarea class="form-control" rows="3" id="memo" [(ngModel)]="purchase.memo"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success" (click)="updatePurchase()">Update</button>
+    <button type="submit" class="btn btn-danger" (click)="deletePurchase()">Delete</button>
 </div>
