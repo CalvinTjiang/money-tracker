@@ -15,7 +15,10 @@ export class ListcategoriesComponent implements OnInit {
   category:any = {
     _id: "",
     name: "",
-    type: ""
+    supercategory: {
+      _id: "",
+      name: ""
+    }
   };
   constructor(private dbService: DatabaseService) { }
 
@@ -33,6 +36,18 @@ export class ListcategoriesComponent implements OnInit {
     this.section = 1;
   }
 
+  addCategory(){
+    this.category = {
+      _id: "",
+      name: "",
+      supercategory: {
+        _id: undefined,
+        name: ""
+      }
+    };
+    this.section = 2;
+  }
+
   updateCategory(){
     this.dbService.updateCategory(this.category._id, this.category).subscribe((result)=>{
       this.getCategories();
@@ -42,6 +57,17 @@ export class ListcategoriesComponent implements OnInit {
 
   deleteCategory(){
     this.dbService.deleteCategory(this.category._id).subscribe((result)=>{
+      this.getCategories();
+      this.section = 0;
+    })
+  }
+
+  createCategory(){
+    let newCategory = {
+      name: this.category.name,
+      supercategory: this.category.supercategory._id
+    }
+    this.dbService.createCategory(newCategory).subscribe((result)=>{
       this.getCategories();
       this.section = 0;
     })

@@ -89,7 +89,7 @@ export class DatabaseService {
   }
 
   getCategory(id:string) {
-    return this.http.get("/db/categories/" + id);
+    return this.http.get("/db/categories/super" + id);
   }
 
   createCategory(data:any) {
@@ -102,33 +102,5 @@ export class DatabaseService {
 
   deleteCategory(id:string) {
     return this.http.delete("/db/categories/" + id);
-  }
-
-  addSupercategories(id:string, data) {
-    return this.http.post('/db/categories/super/' + id, data, httpOptions);
-  }
-
-  addSubcategories(id:string, data) {
-    return this.http.post('/db/categories/sub/' + id, data, httpOptions);
-  }
-
-  deleteSupercategories(id:string, data:any) {
-    const options = {
-      headers: new HttpHeaders({ 
-        "Content-Type": "application/json" 
-      }),
-      body: data
-    }
-    return this.http.delete("/db/categories/super/" + id, options)
-  }
-
-  deleteSubcategories(id:string, data:any) {
-    const options = {
-      headers: new HttpHeaders({ 
-        "Content-Type": "application/json" 
-      }),
-      body: data
-    }
-    return this.http.delete("/db/categories/sub/" + id, options)
   }
 }

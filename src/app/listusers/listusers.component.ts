@@ -34,6 +34,14 @@ export class ListusersComponent implements OnInit {
     this.section = 1;
   }
 
+  addUser(){
+    this.user = {
+      _id: "",
+      name: "",
+      balance: 0
+    };
+    this.section = 2;
+  }
   updateUser(){
     this.dbService.updateUser(this.user._id, this.user).subscribe((result)=>{
       this.getUsers();
@@ -43,6 +51,17 @@ export class ListusersComponent implements OnInit {
 
   deleteUser(){
     this.dbService.deleteUser(this.user._id).subscribe((result)=>{
+      this.getUsers();
+      this.section = 0;
+    })
+  }
+
+  createUser(){
+    let newUser = {
+      name: this.user.name,
+      balance: this.user.balance
+    };
+    this.dbService.createUser(newUser).subscribe((result)=>{
       this.getUsers();
       this.section = 0;
     })

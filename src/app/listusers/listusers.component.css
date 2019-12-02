@@ -4,6 +4,46 @@
     float: left;
     padding: 20px;
 }
+
 .item-row:hover{
     background-color: rgb(230,230,230);
+}
+
+.header{
+    height: 66px;
+    width: auto;
+    padding: 8px;
+    background-color: #343a40;
+}
+
+.add-button{
+    float: right;
+    width: 150px;
+    height: 50px;
+    margin-right: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #ffad46;
+    display: flex;
+    align-items: center;
+}
+
+.add-button:hover, .add-button:hover .md-orange{
+    background-color: #ffad46 ;
+    color: #343a40;
+}
+
+.button-text{
+    padding: 8px 5px;
+    float: left;
+}
+
+.btn.btn-orange{
+    background-color: #ffad46;
+    color: #343a40;
+}
+
+.btn.btn-orange:hover{
+    background-color: #d68f39;
+    color: #343a40;
 }

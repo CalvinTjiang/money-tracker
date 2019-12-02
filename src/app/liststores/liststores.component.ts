@@ -33,6 +33,15 @@ export class ListstoresComponent implements OnInit {
     this.section = 1;
   }
 
+  addStore(){
+    this.store = {
+      _id: "",
+      name: "",
+      type: ""
+    };
+    this.section = 2;
+  }
+
   updateStore(){
     this.dbService.updateStore(this.store._id, this.store).subscribe((result)=>{
       this.getStores();
@@ -42,6 +51,17 @@ export class ListstoresComponent implements OnInit {
 
   deleteStore(){
     this.dbService.deleteStore(this.store._id).subscribe((result)=>{
+      this.getStores();
+      this.section = 0;
+    })
+  }
+
+  createStore(){
+    let newStore = {
+      name: this.store.name,
+      type: this.store.type
+    }
+    this.dbService.createStore(newStore).subscribe((result)=>{
       this.getStores();
       this.section = 0;
     })

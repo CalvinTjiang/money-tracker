@@ -1,9 +1,15 @@
+<div class="header">
+    <div class="add-button" (click)="addUser()">
+        <i class="material-icons md-orange">add</i>
+        <a class="button-text">Add User</a>
+    </div>
+</div>
+
 <div class="section" *ngIf="section==0">
     <table class="table table-striped">
         <tr>
             <th>Name</th>
             <th>Balance</th>
-
         </tr>
         <ng-container *ngFor="let item of usersDB">
             <tr class="item-row" (click)="editUser(item)">
@@ -13,6 +19,7 @@
         </ng-container>
     </table>
 </div>
+
 <div class="section" *ngIf="section==1">
     <div class="form-group">
         <label for="name">Name</label>
@@ -24,4 +31,16 @@
     </div>
     <button type="submit" class="btn btn-success" (click)="updateUser()">Update</button>
     <button type="submit" class="btn btn-danger" (click)="deleteUser()">Delete</button>
+</div>
+
+<div class="section" *ngIf="section==2">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="user.name">
+    </div>
+    <div class="form-group">
+        <label for="balance">Initial Balance</label>
+        <input type="number" class="form-control" id="balance" [(ngModel)]="user.balance">
+    </div>
+    <button type="submit" class="btn btn-orange" (click)="createUser()">Create</button>
 </div>

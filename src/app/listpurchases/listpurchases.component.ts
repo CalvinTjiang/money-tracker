@@ -74,6 +74,33 @@ export class ListpurchasesComponent implements OnInit {
     this.section = 1;
   }
 
+  addPurchase(){
+    this.getUsers();
+    this.getCategories();
+    this.getStores();
+    this.purchase = {
+      _id: "",
+      date: new Date(),
+      user: {
+        _id: "",
+        name: "",
+      },
+      store: {
+        _id: "",
+        name: "",
+      },
+      paymentType: "",
+      outcome: 0,
+      income: 0,
+      category: {
+        _id: "",
+        name: "",
+      },
+      memo: ""
+    };
+    this.section = 2;
+  }
+
   updatePurchase(){
     this.dbService.updatePurchase(this.purchase._id, this.purchase).subscribe((result)=>{
       this.getPurchases();
@@ -88,4 +115,20 @@ export class ListpurchasesComponent implements OnInit {
     })
   }
 
+  createPurchase(){
+    let newPurchase = {
+      date: this.purchase.date,
+      user: this.purchase.user._id,
+      store: this.purchase.store._id,
+      paymentType: this.purchase.paymentType,
+      outcome: this.purchase.outcome,
+      income: this.purchase.income,
+      category: this.purchase.category._id,
+      memo: this.purchase.memo
+    };
+    this.dbService.createPurchase(newPurchase).subscribe((result)=>{
+      this.getPurchases();
+      this.section = 0;
+    })
+  }
 }
