@@ -48,6 +48,15 @@ export class ListcategoriesComponent implements OnInit {
     this.section = 2;
   }
 
+  defaultCategory(){
+    let category:any;
+    console.log(this.categoriesDB);
+    for (category of this.categoriesDB){
+      if (category.isDefault){
+        return category;
+      }
+    }
+  }
   updateCategory(){
     this.dbService.updateCategory(this.category._id, this.category).subscribe((result)=>{
       this.getCategories();
@@ -57,8 +66,13 @@ export class ListcategoriesComponent implements OnInit {
 
   deleteCategory(){
     this.dbService.deleteCategory(this.category._id).subscribe((result)=>{
-      this.getCategories();
-      this.section = 0;
+      let update = {
+        id: this.defaultCategory()._id
+      };
+      this.dbService.updatePurchaseCategory(this.category._id, update).subscribe((result)=>{
+        this.getCategories();
+        this.section = 0;
+      })
     })
   }
 

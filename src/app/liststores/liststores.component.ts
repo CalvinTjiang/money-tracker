@@ -42,6 +42,16 @@ export class ListstoresComponent implements OnInit {
     this.section = 2;
   }
 
+  defaultStore(){
+    let store:any;
+    console.log(this.storesDB);
+    for (store of this.storesDB){
+      if (store.isDefault){
+        return store;
+      }
+    }
+  }
+
   updateStore(){
     this.dbService.updateStore(this.store._id, this.store).subscribe((result)=>{
       this.getStores();
@@ -51,8 +61,13 @@ export class ListstoresComponent implements OnInit {
 
   deleteStore(){
     this.dbService.deleteStore(this.store._id).subscribe((result)=>{
-      this.getStores();
-      this.section = 0;
+      let update = {
+        id: this.defaultStore()._id
+      };
+      this.dbService.updatePurchaseStore(this.store._id, update).subscribe((result)=>{
+        this.getStores();
+        this.section = 0;
+      });
     })
   }
 

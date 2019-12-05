@@ -19,6 +19,7 @@ export class ListpurchasesComponent implements OnInit {
     user: {
       _id: "",
       name: "",
+      balance: 0
     },
     store: {
       _id: "",
@@ -84,6 +85,7 @@ export class ListpurchasesComponent implements OnInit {
       user: {
         _id: "",
         name: "",
+        balance: 0
       },
       store: {
         _id: "",
