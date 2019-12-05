@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const User = require('../models/user');
-
+const Purchase = require('../models/purchase');
 module.exports = {
 
     getAll: function (req, res) {
@@ -42,10 +42,13 @@ module.exports = {
 
 
     deleteOne: function (req, res) {
-        User.findOneAndRemove({ _id: req.params.id }, function (err) {
+        User.findOneAndRemove({ _id: req.params.id }, function (err, user) {
             if (err) return res.status(400).json(err);
 
-            res.json();
+            Purchase.deleteMany({user : req.params.id}, function(err){
+                if (err) return res.status(400).json(err);
+                res.json(user); 
+            })
         });
     },
 };
