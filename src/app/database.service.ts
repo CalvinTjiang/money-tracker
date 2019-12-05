@@ -77,6 +77,14 @@ export class DatabaseService {
     return this.http.delete("/db/purchases/" + id);
   }
 
+  updatePurchaseCategory(id:string, data:any){
+    return this.http.put("/db/purchases/category/" + id, data);
+  }
+  
+  updatePurchaseStore(id:string, data:any){
+    return this.http.put("/db/purchases/store/" + id, data);
+  }
+
 
   // Category HTTP function
   getCategories(populate=false) {
