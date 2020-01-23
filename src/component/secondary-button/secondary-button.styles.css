@@ -1,0 +1,39 @@
+/* Button */
+.btn-secondary-color {
+    color: var(--secondary-color);
+    margin: auto;
+    width: 100%;
+    padding: 5px;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.btn-secondary-color:hover {
+    background-color: var(--secondary-color);
+    color : var(--main-color); 
+}
+
+.btn-secondary-color i, .btn-secondary-color a {
+    float: left;
+    padding: 8px 5px;
+    margin: auto;
+}
+
+
+.btn-active{
+    background-color: var(--secondary-color);
+    color: var(--main-color); 
+    cursor: default!important;
+}
+
+.btn-active .icon-secondary-color{
+    color: var(--main-color)!important; 
+}
+
+.btn-secondary-color:hover .icon-secondary-color {
+    color: var(--main-color); 
+}
+
+.material-icons.icon-secondary-color {
+    color: var(--secondary-color);
+}
