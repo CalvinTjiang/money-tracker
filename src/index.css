@@ -11,3 +11,95 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root{
+  /* --main-color: #343a40;
+  --secondary-color: #e0e0e0; */
+
+  /* --main-color: #e5e6ee;
+  --secondary-color: #293b55; */
+
+  /* --main-color: #293b55;
+  --secondary-color: #e5e6ee; */
+
+  /* --main-color: #343a40;
+  --secondary-color: #ffad46; */
+
+  /* --main-color: #fcb967;
+  --secondary-color: #2b3544; */
+
+  /* --main-color: #2b3544;
+  --secondary-color: #ffad46; */
+
+  --main-color: #293b55;
+  --secondary-color: #ffad46;
+  /* --main-color: #0e153a;
+  --secondary-color: #e2f3f5; */
+
+  /* --main-color: #2d4059;
+  --secondary-color: #ffd460; */
+
+  --light-secondary-color: #e5e6ee;
+  --warning-color: rgb(245, 47, 47);
+  --success-color: green;
+}
+
+body {
+  background-color: var(--main-color); 
+  color: var(--secondary-color);
+}
+
+/* Custom Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--main-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--light-secondary-color)
+}
+
+/* Sidebar */
+#left-nav{
+  position: fixed;
+
+  height: 100%;
+  width: 155px;
+  padding: 5px;
+
+  display: grid;
+  grid-template-rows: 66px 50px 50px 50px 50px auto 60px;
+  grid-gap: 5px;
+
+  border-right: 5px solid var(--secondary-color);
+  transition: width 0.5s ease-out; 
+}
+
+#main-icon {
+  font-size: 40px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.icon-bottom {
+  border-radius: 5px;
+  grid-row: 7/8;
+  width: 50px;
+  margin: auto;
+  margin-left: 7.5px;
+  font-size: 50px;
+  cursor: pointer;
+}
+
