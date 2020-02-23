@@ -4,7 +4,17 @@ const Purchase = require('../models/purchase');
 
 module.exports = {
     getAll: function (req, res) {
-        Purchase.find({})
+        let query = {};
+        if (req.body.year !== undefined && req.body.month !== undefined){
+            let minDate = new Date(req.body.year, req.body.month);
+            let maxDate = new Date(minDate.getFullYear(), minDate.getMonth() + 1, 1);
+            if (minDate.getMonth() == 11) {
+                maxDate = new Date(minDate.getFullYear() + 1, 0, 1);
+            } 
+            query = {date: {$gte: minDate, $lt: maxDate}};
+        }
+
+        Purchase.find(query)
             .populate('store', { name: 1, icon: 1 })
             .populate('category', { name: 1, icon: 1 })
             .sort({date: -1})
