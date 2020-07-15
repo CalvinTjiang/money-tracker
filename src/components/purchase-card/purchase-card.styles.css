@@ -1,0 +1,13 @@
+/* Content List */
+
+.list-group {
+    margin: 24px 0px;
+    border-radius: 5px;
+    /* border: 0.8px solid var(--secondary-color); */
+}
+
+.list-group li {
+    padding: 5px 10px;
+    border: unset;
+    background-color: var(--main-color);
+}

@@ -1,0 +1,52 @@
+
+.list-group {
+    margin: 24px 0px;
+    border-radius: 5px;
+    /* border: 0.8px solid var(--secondary-color); */
+}
+
+.list-group-item.list-header {
+    /* background-color: var(--secondary-color);
+    color: var(--main-color); */
+    font-size: 18px;
+    border-bottom: 0.8px solid var(--secondary-color);
+    display: grid;
+    font-weight: bold;   
+    height: 40px;
+    grid-template-columns: 32px 5fr 1fr 1fr;
+    grid-column-gap: 5px;
+}
+
+.list-header-date {
+    font-weight: bolder;
+    font-size: 20px;
+    margin: 0px auto;
+}
+
+.list-header-month {
+    font-size: 14px;
+    margin-top: 6px;
+    margin-left: 0px;
+}
+.list-header-icon{
+    font-weight: bolder;
+    font-size: 20px;
+    margin: 5px auto auto;
+}
+
+.list-header:hover .material-icons.list-header-icon{
+    color: var(--secondary-color);
+    background-color : var(--main-color); 
+}
+
+.list-income {
+    color: var(--success-color);
+    text-align: right;
+    font-weight: bold;
+}
+
+.list-expenses {
+    color: var(--warning-color);
+    font-weight: bold;   
+    text-align: right;
+}

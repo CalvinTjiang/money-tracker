@@ -20,7 +20,7 @@ export const SecondaryButton = (props) =>{
     }
 
     return (
-        <button className={className} onClick={props.onClick}>
+        <button className={className} onClick={props.onClick} style={props.style}>
             <i className="material-icons icon-secondary-color">{props.icon}</i>
             <a className="btn-text">{props.children}</a>
         </button>

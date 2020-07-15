@@ -93,6 +93,10 @@ body {
   cursor: pointer;
 }
 
+.page{
+  margin-left: 155px;
+}
+
 .icon-bottom {
   border-radius: 5px;
   grid-row: 7/8;
