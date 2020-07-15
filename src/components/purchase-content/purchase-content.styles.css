@@ -1,0 +1,72 @@
+
+/* Content */
+
+#content {
+    color: inherit;
+    background-color: inherit;
+    /* margin-left: 155px; */
+    overflow-x: hidden;
+    padding: 20px 30px;
+    
+    transition: margin-left 0.5s ease-out;
+}
+
+/* Content header */
+.btn-group{
+    margin: auto;
+    color: var(--secondary-color);
+    background-color : var(--main-color); 
+}
+.success{
+    color: var(--success-color);
+}
+.warning{
+    color: var(--warning-color);
+}
+
+.show.dropdown{
+    background-color: var(--main-color);
+    color: var(--secondary-color); 
+}
+.dropdown button{
+    background-color: var(--main-color)!important;
+    color: var(--secondary-color)!important; 
+    border-color: transparent!important;
+    box-shadow: none!important;
+}
+
+.dropdown-toggle{
+    background-color: var(--main-color);
+    color: var(--secondary-color); 
+}
+
+.dropdown-toggle:hover{
+    background-color: var(--secondary-color);
+    color: var(--main-color); 
+}
+
+.dropdown-menu{
+    background-color: var(--main-color);
+    color: var(--secondary-color)!important; 
+}
+
+.dropdown-item{
+    
+    background-color: var(--main-color);
+    color: var(--secondary-color); 
+}
+
+.dropdown-item:hover{
+    background-color: var(--secondary-color);
+    color: var(--main-color); 
+}
+
+#sort-menu{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    margin: 8px;
+}
+
+#sort-menu .btn-group{
+    grid-column: 3/4;
+}

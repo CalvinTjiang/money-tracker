@@ -1,0 +1,48 @@
+
+.list-income {
+    color: var(--success-color);
+    text-align: right;
+    font-weight: bold;
+}
+
+.list-expenses {
+    color: var(--warning-color);
+    font-weight: bold;   
+    text-align: right;
+}
+
+.list-group li {
+    padding: 5px 10px;
+    border: unset;
+    background-color: var(--main-color);
+}
+
+.list-group-item.list-item {
+    cursor: pointer;
+}
+
+.list-group-item.list-item:hover {
+    background-color: var(--secondary-color);
+    color : var(--main-color); 
+}
+
+.list-item {
+    height: 34px;
+    display: grid;
+    grid-template-columns: 30px 1fr 6fr 1fr;
+    grid-column-gap: 5px;
+    
+    transition: background-color 0.2s linear;
+}
+
+.list-group-item:hover .icon-secondary-color {
+    color: var(--main-color); 
+}
+
+.list-text {
+    font-weight: bold;   
+}
+
+.list-date{
+    font-weight: bold;
+}

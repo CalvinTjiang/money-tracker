@@ -1,0 +1,32 @@
+/* Date Picker */
+.month-picker {
+    display: none;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr, 1fr, 1fr;
+    padding: 20px 30px;
+    /* margin-left: 155px; */
+  }
+  
+.month-picker button {
+    width: auto!important;
+    margin:auto;
+  }
+  
+.year-picker {
+    font-weight: bolder;
+    margin: auto;
+    grid-column: 2/6;
+  }
+
+.btn-icon{
+    margin: auto;
+    font-size: 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.btn-icon:hover{
+    background-color: var(--secondary-color);
+    color: var(--main-color); 
+}

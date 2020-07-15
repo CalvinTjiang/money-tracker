@@ -1,0 +1,15 @@
+.total-banner{
+    display: grid;
+    grid-gap: 8px;
+    padding: 8px 56px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    border-radius: 5px;
+    border: 0.8px solid var(--secondary-color);
+}
+
+.total-banner p{
+    margin: auto;
+    font-size: 24px;
+    font-weight: bolder;
+}

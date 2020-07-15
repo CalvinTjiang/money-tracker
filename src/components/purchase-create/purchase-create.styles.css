@@ -1,0 +1,25 @@
+/* Form */
+.input-group-text{
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--main-color);
+    background-color: var(--secondary-color);
+    color : var(--main-color); 
+}
+
+.form-control{
+    border-color: var(--main-color);
+}
+
+.btn-group-toggle>.btn{
+    margin-bottom: auto;
+}
+
+.datepicker{
+    background-color: var(--main-color);
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+}
